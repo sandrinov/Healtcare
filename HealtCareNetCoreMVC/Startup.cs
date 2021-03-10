@@ -32,14 +32,12 @@ namespace HealtCareNetCoreMVC
                     Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<SchoolContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("HealtCareConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("HealtCareConnection")).EnableSensitiveDataLogging());
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
-
 
             services.AddControllersWithViews();
         }
