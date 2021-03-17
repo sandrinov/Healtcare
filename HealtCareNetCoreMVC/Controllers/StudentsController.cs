@@ -224,5 +224,24 @@ namespace HealtCareNetCoreMVC.Controllers
         {
             return _context.Students.Any(e => e.ID == id);
         }
+
+
+
+
+
+
+        private void TestLinq()
+        {
+            var departments = _context.Departments;
+
+            foreach (Department d in departments)
+            {
+                _context.Entry(d).Collection(p=>p.Courses).Load();
+                foreach (var course in d.Courses)
+                {
+                    
+                }
+            }
+        }
     }
 }
