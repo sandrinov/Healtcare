@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Employee1, Employee2 of HealtCare</Authors>
+    <Company>HealtCare s.p.a. Salerno</Company>
+    <Product>A String ClassLibrary</Product>
+    <Description>A New class library to manage Strings</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <Version>2.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NuGet.CommandLine" Version="5.8.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

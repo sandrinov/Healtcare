@@ -3,11 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealtCareNetCoreRazor", "HealtCareNetCoreRazor\HealtCareNetCoreRazor.csproj", "{DF5C1BBD-E0D6-4E61-93FA-08B7C226C506}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealtCareNetCoreRazor", "HealtCareNetCoreRazor\HealtCareNetCoreRazor.csproj", "{DF5C1BBD-E0D6-4E61-93FA-08B7C226C506}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealtCareNetCoreMVC", "HealtCareNetCoreMVC\HealtCareNetCoreMVC.csproj", "{61B7C0D0-0073-499C-91B2-8EC0865D494B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealtCareNetCoreMVC", "HealtCareNetCoreMVC\HealtCareNetCoreMVC.csproj", "{61B7C0D0-0073-499C-91B2-8EC0865D494B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealtCareNetCore3", "HealtCareNetCore3\HealtCareNetCore3.csproj", "{786AC35B-17C6-408E-AB67-671CC8E1783B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HealtCareNetCore3", "HealtCareNetCore3\HealtCareNetCore3.csproj", "{786AC35B-17C6-408E-AB67-671CC8E1783B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealtCareClassLibrary", "HealtCareClassLibrary\HealtCareClassLibrary.csproj", "{3DE5263B-632D-4C7D-B85D-46366C98594F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NugetClientApp", "NugetClientApp\NugetClientApp.csproj", "{5226DB22-DA28-4E21-8027-078D92AC6240}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCNugetServer", "HCNugetServer\HCNugetServer.csproj", "{D9C1457D-D8CB-4CA8-B635-794F2BC953AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCSignalRApp", "HCSignalRApp\HCSignalRApp.csproj", "{220394BD-56EA-4E75-9A36-ECA9C9B4CADA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +35,22 @@ Global
 		{786AC35B-17C6-408E-AB67-671CC8E1783B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{786AC35B-17C6-408E-AB67-671CC8E1783B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{786AC35B-17C6-408E-AB67-671CC8E1783B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE5263B-632D-4C7D-B85D-46366C98594F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE5263B-632D-4C7D-B85D-46366C98594F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE5263B-632D-4C7D-B85D-46366C98594F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE5263B-632D-4C7D-B85D-46366C98594F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5226DB22-DA28-4E21-8027-078D92AC6240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5226DB22-DA28-4E21-8027-078D92AC6240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5226DB22-DA28-4E21-8027-078D92AC6240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5226DB22-DA28-4E21-8027-078D92AC6240}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9C1457D-D8CB-4CA8-B635-794F2BC953AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9C1457D-D8CB-4CA8-B635-794F2BC953AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9C1457D-D8CB-4CA8-B635-794F2BC953AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9C1457D-D8CB-4CA8-B635-794F2BC953AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{220394BD-56EA-4E75-9A36-ECA9C9B4CADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220394BD-56EA-4E75-9A36-ECA9C9B4CADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220394BD-56EA-4E75-9A36-ECA9C9B4CADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220394BD-56EA-4E75-9A36-ECA9C9B4CADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
