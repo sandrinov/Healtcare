@@ -1,0 +1,83 @@
+﻿@page "/calls"
+@using AppointmentsManagerBlazorApp.Components
+@*@using AppointmentsManagerBlazorApp.Model*@
+@using AppointmentsManagerShared
+<h3>Calls</h3>
+@if (CurrentCall == null)
+{
+    <CallsList CallItems="TodayCallsList" Title="Today Calls"
+               OnDelete="DeleteTodayCall"
+               OnEdit="EditCall" OnCreate="CreateCall" />
+}
+else
+{
+    <CallDetail CallItem="CurrentCall"
+                OnSave="SaveCall" OnCancel="CancelOperation" />
+}
+
+
+@code {
+
+    public Call CurrentCall { get; set; }
+
+    List<Call> TodayCallsList = new List<Call>
+{
+                new Call() { Id = 1, Name = "Devops meeting", Provider = "Zoom", Date = new DateTime(2020, 2, 8)},
+                new Call() { Id = 2, Name = "Customer Vip Call", Provider = "Teams", Date = new DateTime(2020, 2, 21)}
+         };
+
+    public void CreateCall()
+    {
+        this.CurrentCall = new Call();
+    }
+
+    public void DeleteTodayCall(Call c)
+    {
+        this.TodayCallsList.Remove(c);
+    }
+    public void EditCall(Call call)
+    {
+        this.CurrentCall = call;
+
+        //this.CurrentCall = new Call()
+        //{
+        //    Id = call.Id,
+        //    Description = call.Description,
+        //    Name = call.Name,
+        //    Provider = call.Provider,
+        //    Date = call.Date,
+        //    Note = call.Note
+        //};
+    }
+    public void SaveCall(Call call)
+    {
+        if (call.Id == 0)
+        {
+            this.TodayCallsList.Add(new Call()
+            {
+                Id = this.TodayCallsList.Count() > 0 ? this.TodayCallsList.Max(x => x.Id) + 1 : 1,
+                Description = call.Description,
+                Name = call.Name,
+                Provider = call.Provider,
+                Date = call.Date,
+                Note = call.Note
+
+            });
+        }
+        else
+        {
+            var callToEdit = this.TodayCallsList.Single(x => x.Id == call.Id);
+            callToEdit.Description = call.Description;
+            callToEdit.Name = call.Name;
+            callToEdit.Provider = call.Provider;
+            callToEdit.Date = call.Date;
+            callToEdit.Note = call.Note;
+        }
+
+        this.CurrentCall = null;
+    }
+    public void CancelOperation()
+    {
+        this.CurrentCall = null;
+    }
+}

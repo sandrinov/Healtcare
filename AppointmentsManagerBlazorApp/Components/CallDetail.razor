@@ -1,0 +1,48 @@
+﻿@*@using AppointmentsManagerBlazorApp.Model*@
+@using AppointmentsManagerShared
+<h3>Call @CallItem.Name</h3>
+<EditForm Model="CallItem" OnValidSubmit="@(e=>OnSave.InvokeAsync(CallItem))">
+
+    <div class="form-group">
+        <label for="nome">Name:</label>
+        <InputText id="nome" @bind-Value="CallItem.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="provider">Provider:</label>
+        <InputText id="provider" @bind-Value="CallItem.Provider" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="data">Date:</label>
+        <InputDate id="date" @bind-Value="CallItem.Date" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <InputText id="description" @bind-Value="CallItem.Description" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="note">Note:</label>
+        <InputTextArea id="note" @bind-Value="CallItem.Note" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-warning" @onclick="OnCancel">Cancel</button>
+</EditForm>
+
+
+@code {
+    [Parameter]
+    public Call CallItem { get; set; }
+
+    [Parameter]
+    public EventCallback<Call> OnSave { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancel { get; set; }
+
+    [Parameter]
+    public EventCallback OnCreate { get; set; }
+}

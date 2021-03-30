@@ -17,7 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HCNugetServer", "HCNugetSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HCSignalRApp", "HCSignalRApp\HCSignalRApp.csproj", "{220394BD-56EA-4E75-9A36-ECA9C9B4CADA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppForFundamentalConcepts", "BlazorAppForFundamentalConcepts\BlazorAppForFundamentalConcepts.csproj", "{AA1287B3-D554-4C39-8843-B20C12049D2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppForFundamentalConcepts", "BlazorAppForFundamentalConcepts\BlazorAppForFundamentalConcepts.csproj", "{AA1287B3-D554-4C39-8843-B20C12049D2F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppointmentsManagerBlazorApp", "AppointmentsManagerBlazorApp\AppointmentsManagerBlazorApp.csproj", "{A2444517-7404-42F6-B3AF-0D2EAD7AAF8D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppointmentsManagerShared", "AppointmentsManagerShared\AppointmentsManagerShared.csproj", "{907C5B88-4B4B-4EEC-BC18-4A6D47285FC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentManagerBackEnd", "AppointmentManagerBackEnd\AppointmentManagerBackEnd.csproj", "{AC94872B-ADF9-4F2B-8317-E71B42D338D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +63,18 @@ Global
 		{AA1287B3-D554-4C39-8843-B20C12049D2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA1287B3-D554-4C39-8843-B20C12049D2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA1287B3-D554-4C39-8843-B20C12049D2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2444517-7404-42F6-B3AF-0D2EAD7AAF8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2444517-7404-42F6-B3AF-0D2EAD7AAF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2444517-7404-42F6-B3AF-0D2EAD7AAF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2444517-7404-42F6-B3AF-0D2EAD7AAF8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{907C5B88-4B4B-4EEC-BC18-4A6D47285FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{907C5B88-4B4B-4EEC-BC18-4A6D47285FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{907C5B88-4B4B-4EEC-BC18-4A6D47285FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{907C5B88-4B4B-4EEC-BC18-4A6D47285FC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC94872B-ADF9-4F2B-8317-E71B42D338D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC94872B-ADF9-4F2B-8317-E71B42D338D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC94872B-ADF9-4F2B-8317-E71B42D338D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC94872B-ADF9-4F2B-8317-E71B42D338D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

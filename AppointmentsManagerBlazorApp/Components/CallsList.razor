@@ -1,0 +1,56 @@
+﻿@*@using AppointmentsManagerBlazorApp.Model*@
+@using AppointmentsManagerShared
+<h2>@Title</h2>
+<br />
+<button class="btn btn-primary"
+        @onclick="e => OnCreate.InvokeAsync()">
+    Create new Call
+</button>
+<hr />
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Provider</th>
+        <th>Date</th>
+        <th></th>
+    </tr>
+    @foreach (var call in CallItems)
+    {
+        <tr>
+            <td>@call.Id</td>
+            <td>@call.Name</td>
+            <td>@call.Provider</td>
+            <td>@call.Date</td>
+            @*<th><button class="btn btn-danger" @onclick="e => DeleteCall(call)">Elimina</button></th>*@
+            <th>
+                <button class="btn btn-warning" @onclick="e => OnEdit.InvokeAsync(call)">
+                    Edit
+                </button>
+                <button class="btn btn-danger" @onclick="e=>OnDelete.InvokeAsync(call)">Elimina</button>
+            </th>
+        </tr>
+    }
+</table>
+@code{
+
+    [Parameter]
+    public string Title { get; set; } = "Calls List";
+
+    [Parameter]
+    public List<Call> CallItems { get; set; }
+
+    [Parameter]
+    public EventCallback<Call> OnDelete { get; set; }
+
+    [Parameter]
+    public EventCallback<Call> OnEdit { get; set; }
+
+    [Parameter]
+    public EventCallback OnCreate { get; set; }
+
+    //public void DeleteCall(Call call)
+    //{
+    //    this.CallItems.Remove(call);
+    //}
+}
