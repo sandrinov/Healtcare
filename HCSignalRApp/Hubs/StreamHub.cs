@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace HCSignalRApp.Hubs
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class StreamHub : Hub
     {
         public async IAsyncEnumerable<int> Counter(
