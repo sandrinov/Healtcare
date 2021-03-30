@@ -1,0 +1,44 @@
+﻿@page "/ComponentSamples/ParentComponent"
+
+<h1>Parent-child example</h1>
+
+<ChildComponent Title="Panel Title from Parent" OnClickCallback="@ShowMessage">
+    Content of the child component is supplied
+    by the parent component.
+</ChildComponent>
+
+<ChildComponent Title="@title" ShowItemsSinceDate="@(DateTime.Now - TimeSpan.FromDays(7))">
+    Title from field.
+</ChildComponent>
+
+<ChildComponent Title="@GetTitle()">
+    Title from method.
+</ChildComponent>
+
+<ChildComponent Title="@DateTime.Now.ToLongDateString()">
+    Title from implicit Razor expression.
+</ChildComponent>
+
+<ChildComponent Title="@person.Name">
+    Title from implicit Razor expression.
+</ChildComponent>
+
+@code
+{private string title = "Panel Title from Parent";
+    private Person person = new Person();
+
+    private string GetTitle()
+    {
+        return "Panel Title from Parent";
+    }
+
+    private class Person
+    {
+        public string Name { get; set; } = "Dr. Who";
+    }
+
+    private void ShowMessage(MouseEventArgs e)
+    {
+        Console.WriteLine($"Mouse coordinates: {e.ScreenX}:{e.ScreenY}");
+    }
+}
