@@ -1,0 +1,17 @@
+﻿@page  "/callJSFromNet"
+@inject IJSRuntime jsRunTime
+
+<h3>CallJSFromNet</h3>
+<br />
+<input type="text" @bind="message"/>
+<button @onclick="ShowAlert">Show Alert</button>
+
+@code {
+
+    string message = "";
+    private void ShowAlert()
+    {
+        ((IJSInProcessRuntime)jsRunTime).InvokeVoid("ShowAlert", message);
+    }
+
+}

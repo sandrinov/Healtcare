@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>BlazorAppForFundamentalConcepts</title>
+    <title>BlazorInterop</title>
     <base href="/" />
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
-    <link href="BlazorAppForFundamentalConcepts.styles.css" rel="stylesheet" />
+    <link href="BlazorInterop.styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -23,6 +23,21 @@
         window.ShowAlert = (message) => {
             alert(message);
         }
+        window.WriteCSharpMessageToConsole = () => {
+            DotNet.invokeMethodAsync('BlazorInterop', 'GetHelloMessage')
+                .then(message => {
+                    console.log(message);
+                });
+        }
+
+        window.WriteCSharpMessageInstanceToConsole = (dotnetHelper) => {
+
+            dotnetHelper.invokeMethodAsync('GetHelloInstanceMessage')
+                .then(message => {
+                    console.log(message);
+                });
+        }
+
     </script>
     <script src="_framework/blazor.webassembly.js"></script>
 </body>

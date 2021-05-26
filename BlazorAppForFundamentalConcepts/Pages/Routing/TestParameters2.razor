@@ -7,14 +7,14 @@
     [Parameter]
     public string Text { get; set; }
 
-    //protected override void OnInitialized()
-    //{
-    //    Text = Text ?? "fantastic";
-    //}
-
-    protected override void OnParametersSet()
+    protected override void OnInitialized()
     {
         Text = Text ?? "fantastic";
     }
+
+    //protected override void OnParametersSet()
+    //{
+    //    Text = Text ?? "fantastic";
+    //}
 
 }

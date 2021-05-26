@@ -1,0 +1,32 @@
+﻿@page "/CallNetFromJS"
+@inject IJSRuntime jsRuntime
+
+<h3>CallNetFromJS</h3>
+
+<button @onclick="WriteToConsole">Run Static Method</button>
+<hr />
+<button @onclick="WriteInstanceToConsole">Run Instance Method</button>
+
+@code {
+
+    private async Task WriteToConsole()
+    {
+        await jsRuntime.InvokeVoidAsync("WriteCSharpMessageToConsole");
+
+    }
+
+    private async Task WriteInstanceToConsole()
+    {
+        await jsRuntime.InvokeVoidAsync("WriteCSharpMessageInstanceToConsole", DotNetObjectReference.Create(this));
+
+    }
+
+    [JSInvokable]
+    public Task<string> GetHelloInstanceMessage()
+    {
+        var message = "Hello from a C# instance";
+        return Task.FromResult(message);
+    }
+
+
+}

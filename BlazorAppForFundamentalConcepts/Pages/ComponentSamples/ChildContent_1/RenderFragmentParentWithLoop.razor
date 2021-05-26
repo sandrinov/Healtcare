@@ -1,0 +1,12 @@
+﻿@page "/render-fragment-parent-with-loop"
+
+<h1>Three children with an index variable</h1>
+
+@for (int c = 0; c < 3; c++)
+{
+    //var current = c;
+
+    <RenderFragmentChild>
+        Count: @c
+    </RenderFragmentChild>
+}

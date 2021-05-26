@@ -9,6 +9,11 @@
 <Child1 @bind-Year="year" />
 
 @code {
+    /// <summary>
+    /// Component parameters permit binding properties of a parent component 
+    /// with @bind-{PROPERTY} syntax, where the {PROPERTY} placeholder is the 
+    /// property to bind.
+    /// </summary>
     private Random r = new Random();
     private int year = 1979;
 

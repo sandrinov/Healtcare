@@ -36,6 +36,7 @@ namespace AppointmentManagerBackEnd
             });
             services.AddDbContext<CallManagerDbContext>(
                 opt => opt.UseSqlite("DataSource=callmanager.db"));
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +48,7 @@ namespace AppointmentManagerBackEnd
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AppointmentManagerBackEnd v1"));
             }
-
+            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseHttpsRedirection();
 
             app.UseRouting();

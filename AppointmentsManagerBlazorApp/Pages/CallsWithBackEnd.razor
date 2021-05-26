@@ -1,0 +1,131 @@
+﻿@page "/calls"
+@inject HttpClient http 
+@using AppointmentsManagerBlazorApp.Components
+@*@using AppointmentsManagerBlazorApp.Model*@
+@using AppointmentsManagerShared
+<h3>Calls</h3>
+@if (CurrentCall == null)
+{
+    <CallsList CallItems="TodayCallsList" Title="Today Calls"
+               OnDelete="DeleteCall"
+               OnEdit="EditCall" OnCreate="CreateCall" />
+}
+else
+{
+    <CallDetail CallItem="CurrentCall"
+                OnSave="SaveCall" OnCancel="CancelOperation" />
+}
+
+
+@code {
+
+
+    public Call CurrentCall { get; set; }
+
+    #region old code
+
+    //    List<Call> TodayCallsList = new List<Call>
+    //{
+    //                new Call() { Id = 1, Name = "Devops meeting", Provider = "Zoom", Date = new DateTime(2020, 2, 8)},
+    //                new Call() { Id = 2, Name = "Customer Vip Call", Provider = "Teams", Date = new DateTime(2020, 2, 21)}
+    //         };
+
+    //public void CreateCall()
+    //{
+    //    this.CurrentCall = new Call();
+    //}
+
+    //public void DeleteTodayCall(Call c)
+    //{
+    //    this.TodayCallsList.Remove(c);
+    //}
+    //public void EditCall(Call call)
+    //{
+    //    this.CurrentCall = call;
+
+    //    //this.CurrentCall = new Call()
+    //    //{
+    //    //    Id = call.Id,
+    //    //    Description = call.Description,
+    //    //    Name = call.Name,
+    //    //    Provider = call.Provider,
+    //    //    Date = call.Date,
+    //    //    Note = call.Note
+    //    //};
+    //}
+    //public void SaveCall(Call call)
+    //{
+    //    if (call.Id == 0)
+    //    {
+    //        this.TodayCallsList.Add(new Call()
+    //        {
+    //            Id = this.TodayCallsList.Count() > 0 ? this.TodayCallsList.Max(x => x.Id) + 1 : 1,
+    //            Description = call.Description,
+    //            Name = call.Name,
+    //            Provider = call.Provider,
+    //            Date = call.Date,
+    //            Note = call.Note
+
+    //        });
+    //    }
+    //    else
+    //    {
+    //        var callToEdit = this.TodayCallsList.Single(x => x.Id == call.Id);
+    //        callToEdit.Description = call.Description;
+    //        callToEdit.Name = call.Name;
+    //        callToEdit.Provider = call.Provider;
+    //        callToEdit.Date = call.Date;
+    //        callToEdit.Note = call.Note;
+    //    }
+
+    //    this.CurrentCall = null;
+    //}
+
+    #endregion
+
+    private String apiUrl = "https://localhost:44325/api/Calls";
+    List<Call> TodayCallsList { get; set; } = new List<Call>();
+
+    protected override Task OnInitializedAsync()
+    {
+        return LoadCalls();
+    }
+
+    private async Task LoadCalls()
+    {
+        this.TodayCallsList = await http.GetFromJsonAsync<List<Call>>(apiUrl);
+    }
+
+    public async Task EditCall(Call call)
+    {
+        this.CurrentCall = await http.GetFromJsonAsync<Call>($"{apiUrl}/{call.Id}");
+    }
+    public async Task SaveCall(Call call)
+    {
+        if (call.Id == 0)
+        {
+            await http.PostAsJsonAsync<Call>(apiUrl, call);
+        }
+        else
+        {
+            await http.PutAsJsonAsync($"{apiUrl}/{call.Id}", call);
+        }
+        await LoadCalls();
+        this.CurrentCall = null;
+    }
+
+    public async Task DeleteCall(Call call)
+    {
+        await http.DeleteAsync($"{apiUrl}/{call.Id}");
+        await LoadCalls();
+    }
+    public void CreateCall()
+    {
+
+    }
+
+    public void CancelOperation()
+    {
+        this.CurrentCall = null;
+    }
+}
